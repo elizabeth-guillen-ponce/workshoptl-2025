@@ -38,6 +38,7 @@ android {
 
     buildFeatures {
         viewBinding = true
+        dataBinding = true
     }
 }
 
@@ -49,9 +50,11 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     //Firebase
-    implementation(platform(libs.firebase.bom))
-    implementation(libs.firebase.analytics)
-    implementation(libs.firebase.auth)
+    implementation(platform("com.google.firebase:firebase-bom:32.7.0"))
+    implementation( "com.google.firebase:firebase-analytics")
+    implementation("com.google.firebase:firebase-auth")
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
 
     //Tests
     testImplementation(libs.junit)
