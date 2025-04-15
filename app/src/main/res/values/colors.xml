@@ -6,7 +6,9 @@
     <color name="red">#FFFF0000</color>
     <color name="green">#FF00FF00</color>
     <color name="blue">#FF0000FF</color>
+    <color name="blue_navy">#01017E</color>
     <color name="light_gray">#EBE9E9</color>
     <color name="tile">#009688</color>
     <color name="purple">#673AB7</color>
+    <color name="gold">#D6EBB619</color>
 </resources>

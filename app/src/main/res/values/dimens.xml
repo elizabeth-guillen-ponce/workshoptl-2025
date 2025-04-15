@@ -5,4 +5,8 @@
     <dimen name="padding_16dp">16dp</dimen>
     <dimen name="padding_32dp">32dp</dimen>
     <dimen name="padding_64dp">64dp</dimen>
+
+
+    <dimen name="credit_card_height">32dp</dimen>
+    <dimen name="credit_card_width">48dp</dimen>
 </resources>

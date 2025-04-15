@@ -4,4 +4,15 @@
     <style name="WorkShop.Titles" parent="MaterialAlertDialog.Material3.Title.Text">
         <item name="android:textStyle">bold</item>
     </style>
+
+    <style name="WorkShop.Subtitle" parent="MaterialAlertDialog.Material3.Title.Text">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="WorkShop.Card.Numbers" parent="MaterialAlertDialog.Material3.Body.Text">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">monospace</item>
+    </style>
 </resources>

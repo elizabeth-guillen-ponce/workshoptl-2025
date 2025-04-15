@@ -24,4 +24,7 @@
     <string name="female">Femenino</string>
     <string name="save">Guardar</string>
 
+    <!-- Dashboard -->
+    <string name="greeting">Hola {name}!</string>
+
 </resources>
