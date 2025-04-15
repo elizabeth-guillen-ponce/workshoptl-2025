@@ -4,5 +4,6 @@ enum class AuthScreens {
     LOGIN,
     SIGN_UP,
     FORGOT_PASSWORD,
-    KYC
+    KYC,
+    LOGIN_SUCCESS
 }

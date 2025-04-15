@@ -2,13 +2,19 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph"
+    android:id="@+id/auth_nav_graph"
     app:startDestination="@id/loginFragment">
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.workshop_tl.presentation.LoginFragment"
         android:label="Login"
+        android:name="com.example.workshop_tl.presentation.LoginFragment"
         tools:layout="@layout/fragment_login" />
+
+    <fragment
+        android:id="@+id/signupFragment"
+        android:label="Signup"
+        android:name="com.example.workshop_tl.presentation.SignupFragment"
+        tools:layout="@layout/fragment_signup" />
 
 </navigation>

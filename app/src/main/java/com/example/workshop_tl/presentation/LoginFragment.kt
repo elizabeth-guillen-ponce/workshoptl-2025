@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.workshop_tl.databinding.FragmentLoginBinding
+import org.koin.androidx.viewmodel.ext.android.activityViewModel
 
 /**
  * A simple [Fragment] subclass.
@@ -13,23 +14,15 @@ import com.example.workshop_tl.databinding.FragmentLoginBinding
  * create an instance of this fragment.
  */
 class LoginFragment : Fragment() {
-    var param1: String? = "param1"
-    var param2: String? = "param2"
 
     lateinit var binding: FragmentLoginBinding
+    private val authViewModel by activityViewModel<AuthViewModel>()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         binding = FragmentLoginBinding.inflate(inflater, container, false)
         return binding.root
@@ -37,31 +30,29 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.loginButton.setOnClickListener { }
-        binding.signupLogin.setOnClickListener { }
+        binding.loginButton.setOnClickListener {
+            if (validateInputs()) {
+                authViewModel.onLoginClicked(
+                    binding.emailInputLogin.text.toString(),
+                    binding.passwordEditText.text.toString()
+                )
+            }
+        }
+        binding.signupLogin.setOnClickListener {
+            authViewModel.navToScreen(AuthScreens.SIGN_UP)
+        }
     }
 
-    companion object {
-        const val ARG_PARAM1 = "param1"
-        const val ARG_PARAM2 = "param2"
-
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment LoginFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            LoginFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    private fun validateInputs(): Boolean {
+        if (binding.emailInputLogin.text.toString().isEmpty()) {
+            binding.emailInputLogin.error = "Email is required"
+            return false
+        }
+        if (binding.passwordEditText.text.toString().isEmpty()) {
+            binding.passwordEditText.error = "Password is required"
+            return false
+        }
+        return true
     }
 
 }
