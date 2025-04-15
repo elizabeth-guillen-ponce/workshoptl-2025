@@ -1,22 +1,22 @@
 package com.example.workshop_tl.presentation.dashboard.ui.main
 
-sealed class DashboardItems {
+sealed class DashboardItem {
     data class GoldCard(
         val cardNumber: String,
         val cardHolder: String,
         val expiryDate: String,
         val cvv: String
-    ) : DashboardItems()
+    ) : DashboardItem()
 
     data class HeaderItem(
         val title: String,
         val name: String
-    ) : DashboardItems()
+    ) : DashboardItem()
 
     data class PromotionCard(
         val title: String,
         val description: String
-    ) : DashboardItems()
+    ) : DashboardItem()
 
     enum class ItemType(val value: Int) {
         HEADER(1),

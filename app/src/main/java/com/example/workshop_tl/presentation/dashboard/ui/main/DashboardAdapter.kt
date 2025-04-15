@@ -8,15 +8,15 @@ import com.example.workshop_tl.databinding.HeaderItemBinding
 import com.example.workshop_tl.databinding.PromotionCardItemBinding
 
 class DashboardAdapter(
-    private val items: List<DashboardItems>
+    private val items: List<DashboardItem>
 ) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun getItemViewType(position: Int): Int {
         return when(items[position]) {
-            is DashboardItems.HeaderItem -> DashboardItems.ItemType.HEADER.value
-            is DashboardItems.GoldCard -> DashboardItems.ItemType.GOLD_CARD.value
-            is DashboardItems.PromotionCard -> DashboardItems.ItemType.PROMOTION_CARD.value
+            is DashboardItem.HeaderItem -> DashboardItem.ItemType.HEADER.value
+            is DashboardItem.GoldCard -> DashboardItem.ItemType.GOLD_CARD.value
+            is DashboardItem.PromotionCard -> DashboardItem.ItemType.PROMOTION_CARD.value
         }
     }
 
@@ -26,7 +26,7 @@ class DashboardAdapter(
     ): RecyclerView.ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         return when (viewType) {
-            DashboardItems.ItemType.HEADER.value -> HeaderViewHolder(
+            DashboardItem.ItemType.HEADER.value -> HeaderViewHolder(
                 HeaderItemBinding.inflate(
                     inflater,
                     parent,
@@ -34,7 +34,7 @@ class DashboardAdapter(
                 )
             )
 
-            DashboardItems.ItemType.GOLD_CARD.value -> GoldCardViewHolder(
+            DashboardItem.ItemType.GOLD_CARD.value -> GoldCardViewHolder(
                 GoldCardItemBinding.inflate(
                     inflater,
                     parent,
@@ -42,7 +42,7 @@ class DashboardAdapter(
                 )
             )
 
-            DashboardItems.ItemType.PROMOTION_CARD.value -> PromotionViewHolder(
+            DashboardItem.ItemType.PROMOTION_CARD.value -> PromotionViewHolder(
                 PromotionCardItemBinding.inflate(
                     inflater, parent, false
                 )
@@ -57,9 +57,9 @@ class DashboardAdapter(
         position: Int
     ) {
         when (val item = items[position]) {
-            is DashboardItems.HeaderItem -> (holder as HeaderViewHolder).bind(item)
-            is DashboardItems.GoldCard -> (holder as GoldCardViewHolder).bind(item)
-            is DashboardItems.PromotionCard -> (holder as PromotionViewHolder).bind(item)
+            is DashboardItem.HeaderItem -> (holder as HeaderViewHolder).bind(item)
+            is DashboardItem.GoldCard -> (holder as GoldCardViewHolder).bind(item)
+            is DashboardItem.PromotionCard -> (holder as PromotionViewHolder).bind(item)
             // Add more types as needed
         }
     }

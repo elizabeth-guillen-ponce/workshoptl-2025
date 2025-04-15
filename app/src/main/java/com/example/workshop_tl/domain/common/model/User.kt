@@ -9,5 +9,13 @@ data class User(
     val email: String = "",
     val name: String = "",
     val lastName: String = "",
-    val gender: String = Gender.UNKNOWN
-)
+    val gender: String = Gender.UNKNOWN,
+    val incoming: Int = 0
+) {
+
+    fun getTypeUser(): UserType {
+        return if (incoming > 10000) {
+            UserType.GOLD
+        } else UserType.SILVER
+    }
+}

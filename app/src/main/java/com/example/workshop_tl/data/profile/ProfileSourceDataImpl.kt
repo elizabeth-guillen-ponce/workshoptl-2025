@@ -10,7 +10,7 @@ class ProfileSourceDataImpl(private val firestore: FirebaseFirestore) : ProfileS
 
     override suspend fun getUserProfile(userId: String): Flow<List<User>> {
         val user =
-            firestore.collection(USERS_COLLECTION).whereEqualTo(USER_ID_FIELD, userId)
+            firestore.collection(USERS_COLLECTION)
                 .dataObjects<User>()
         return user
     }

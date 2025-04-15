@@ -7,16 +7,17 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.workshop_tl.databinding.FragmentDashboardBinding
-import com.example.workshop_tl.domain.common.model.UserType
+import org.koin.androidx.viewmodel.ext.android.activityViewModel
 
 class DashboardFragment : Fragment() {
 
 
     lateinit var binding: FragmentDashboardBinding
 
+    private val dashboardViewModel by activityViewModel<DashboardViewModel>()
+
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
         binding = FragmentDashboardBinding.inflate(inflater, container, false)
@@ -27,20 +28,9 @@ class DashboardFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.recyclerViewDashboard.layoutManager = LinearLayoutManager(requireContext())
-        binding.recyclerViewDashboard.adapter = DashboardAdapter(getDashboardItems(UserType.GOLD))
+        dashboardViewModel.dashboardItem.observe(viewLifecycleOwner) { items ->
+            binding.recyclerViewDashboard.adapter = DashboardAdapter(items)
+        }
     }
-
-    private fun getDashboardItems(typeUser: UserType) = listOf<DashboardItems>(
-        DashboardItems.HeaderItem("Hola", "John Doe"),
-        if (typeUser == UserType.GOLD) DashboardItems.GoldCard(
-            "**** **** **** 1234",
-            "John Doe",
-            "MM/YY",
-            "123"
-        ) else DashboardItems.PromotionCard(
-            "Promoción!!!!",
-            "Obten tu tarjeta gratis"
-        )
-    )
 
 }
