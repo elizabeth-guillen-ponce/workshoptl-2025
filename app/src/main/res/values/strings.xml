@@ -13,8 +13,15 @@
     <string name="not_register">¿No estás registrado?</string>
     <string name="register">Registrarse</string>
 
-
     <!-- Signup -->
     <string name="confirm_email">Confirma tu email</string>
+
+    <!-- Profile -->
+    <string name="name">Nombre(s)</string>
+    <string name="last_name">Apellidos</string>
+    <string name="gender">Género</string>
+    <string name="male">Masculino</string>
+    <string name="female">Femenino</string>
+    <string name="save">Guardar</string>
 
 </resources>

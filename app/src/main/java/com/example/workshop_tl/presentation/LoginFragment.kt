@@ -39,7 +39,7 @@ class LoginFragment : Fragment() {
             }
         }
         binding.signupLogin.setOnClickListener {
-            authViewModel.navToScreen(AuthScreens.SIGN_UP)
+            authViewModel.navToScreen(Screens.SIGN_UP)
         }
     }
 

@@ -1,4 +1,4 @@
-package com.example.workshop_tl.domain.common
+package com.example.workshop_tl.domain.common.model
 
 import androidx.annotation.StringRes
 

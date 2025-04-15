@@ -1,33 +1,35 @@
-package com.example.workshop_tl.presentation
+package com.example.workshop_tl.presentation.userprofile
 
 import android.content.Intent
-import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.example.workshop_tl.R
-import com.example.workshop_tl.databinding.ActivityMainBinding
+import com.example.workshop_tl.databinding.ActivityProfileBinding
+import com.example.workshop_tl.presentation.Screens
 import com.example.workshop_tl.presentation.dashboard.DashboardActivity
-import com.example.workshop_tl.presentation.userprofile.ProfileActivity
+import com.example.workshop_tl.presentation.userprofile.ui.main.ProfileViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import kotlin.getValue
 
-class MainActivity : AppCompatActivity() {
+class ProfileActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
-    private val authViewModel by viewModel<AuthViewModel>()
+    private lateinit var binding: ActivityProfileBinding
+    private val profileViewModel by viewModel<ProfileViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+
+        binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.fragmentContainerLogin) as NavHostFragment
+            supportFragmentManager.findFragmentById(R.id.fragmentContainerProfile) as NavHostFragment
         val navController = navHostFragment.navController
-        navigateToScreen(Screens.LOGIN, navController)
+        navigateToScreen(Screens.KYC, navController)
 
-
-        authViewModel.navToScreen.observe(this) { screen ->
+        profileViewModel.navToScreen.observe(this) { screen ->
             navigateToScreen(screen, navController)
         }
     }
@@ -36,10 +38,11 @@ class MainActivity : AppCompatActivity() {
         when (screen) {
             Screens.LOGIN -> navController.navigate(R.id.loginFragment)
             Screens.SIGN_UP -> navController.navigate(R.id.signupFragment)
-            Screens.KYC -> startActivity(Intent(this, ProfileActivity::class.java))
+            Screens.KYC -> navController.navigate(R.id.profileFragment)
             Screens.DASHBOARD -> startActivity(Intent(this, DashboardActivity::class.java))
-            // AuthScreens.FORGOT_PASSWORD -> navController.navigate(R.id.forgotPasswordFragment)
-            else -> {}
+            else -> {
+                finish()
+            }
         }
     }
 }

@@ -6,35 +6,22 @@ import kotlinx.coroutines.tasks.await
 
 class AppAuthManagerImpl(private val auth: FirebaseAuth) : AppAuthManager {
 
-    var currentUser: FirebaseUser? = null
-
-    override suspend fun getCurrentUser(): FirebaseUser? {
-        currentUser = auth.currentUser
-        return currentUser
-    }
-
-    override suspend fun signIn(email: String, password: String): FirebaseUser? {
+    override suspend fun signIn(email: String, password: String): Boolean? {
         val tmpUser = auth.signInWithEmailAndPassword(email, password).await()
-        if (tmpUser.user != null) {
-            currentUser = tmpUser.user
-        }
-        return currentUser
+        return tmpUser.user != null
     }
 
-    override suspend fun signOut() {
-        auth.currentUser?.let { user ->
-            if (!user.isAnonymous) {
-                user.delete()
+    override suspend fun signOut(user: FirebaseUser?) {
+        user?.let {
+            if (!it.isAnonymous) {
+                it.delete()
             }
         }
         auth.signOut()
     }
 
-    override suspend fun signUp(email: String, password: String): FirebaseUser? {
+    override suspend fun signUp(email: String, password: String): Boolean? {
         val tmpUser = auth.createUserWithEmailAndPassword(email, password).await()
-        if (tmpUser.user != null) {
-            currentUser = tmpUser.user
-        }
-        return currentUser
+        return tmpUser.user != null
     }
 }

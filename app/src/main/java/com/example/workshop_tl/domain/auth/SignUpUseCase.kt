@@ -4,7 +4,6 @@ import com.example.workshop_tl.data.auth.AppAuthManager
 import com.example.workshop_tl.presentation.common.isSameEmail
 import com.example.workshop_tl.presentation.common.isValidEmail
 import com.example.workshop_tl.presentation.common.isValidPassword
-import com.google.firebase.auth.FirebaseUser
 
 class SignUpUseCase(private val authManager: AppAuthManager) {
 
@@ -12,12 +11,12 @@ class SignUpUseCase(private val authManager: AppAuthManager) {
         email: String,
         confirmEmail: String,
         password: String
-    ): FirebaseUser? {
+    ): Boolean? {
         if (!email.isValidEmail() || !email.isSameEmail(confirmEmail) || !password.isValidPassword()) {
             throw IllegalArgumentException("Email and password cannot be empty")
         }
-        val user = authManager.signUp(email, password)
-        if (user == null) throw Exception("Sign up failed")
-        return user
+        val success = authManager.signUp(email, password)
+        if (success == null || !success) throw Exception("Sign up failed")
+        return success
     }
 }
