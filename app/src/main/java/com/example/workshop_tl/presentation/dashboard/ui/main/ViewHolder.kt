@@ -3,6 +3,7 @@ package com.example.workshop_tl.presentation.dashboard.ui.main
 import android.content.Context
 import androidx.recyclerview.widget.RecyclerView
 import com.example.workshop_tl.R
+import com.example.workshop_tl.databinding.BalanceItemBinding
 import com.example.workshop_tl.databinding.GoldCardItemBinding
 import com.example.workshop_tl.databinding.HeaderItemBinding
 import com.example.workshop_tl.databinding.PromotionCardItemBinding
@@ -39,5 +40,12 @@ class SilverCardViewHolder(private val binding: SilverCardItemBinding) :
         binding.cardNumberTextCard.text = item.cardNumber
         binding.cardHolderTextCard.text = item.cardHolder
         binding.expiryDateTextCard.text = item.expiryDate
+    }
+}
+
+class BalanceViewHolder(private val binding: BalanceItemBinding) :
+    RecyclerView.ViewHolder(binding.root) {
+    fun bind(item: DashboardItem.Balance) {
+        binding.balanceLabelBalance.text = item.total
     }
 }

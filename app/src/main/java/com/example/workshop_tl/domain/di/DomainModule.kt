@@ -5,6 +5,7 @@ import com.example.workshop_tl.domain.analytics.TrackEventUseCase
 import com.example.workshop_tl.domain.auth.LoginUseCase
 import com.example.workshop_tl.domain.auth.SignOutUseCase
 import com.example.workshop_tl.domain.auth.SignUpUseCase
+import com.example.workshop_tl.domain.cloudmessage.GetFirebaseTokenUseCase
 import com.example.workshop_tl.domain.dashboard.GetDashboardItemsUseCase
 import com.example.workshop_tl.domain.profile.CreateProfileUserUseCase
 import com.example.workshop_tl.domain.profile.GetProfileUserUseCase
@@ -50,4 +51,5 @@ val authDomainModule = module {
     single { SetUserIdAnalyticsUseCase(analyticsTrack = get()) }
     single { SetDefaultValuesRemoteUseCase(remoteConfigSource = get()) }
     single { GetStringValueRemoteUseCase(remoteConfigSource = get()) }
+    single { GetFirebaseTokenUseCase(cloudMessageRemoteSource = get()) }
 }

@@ -32,5 +32,7 @@
     <!-- Dashboard -->
     <string name="greeting">Hola %1s!</string>
     <string name="title">My Bank</string>
+    <string name="total_balance">Saldo total:</string>
+    <string name="money_sign">$</string>
 
 </resources>

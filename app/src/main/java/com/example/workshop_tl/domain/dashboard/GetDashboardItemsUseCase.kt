@@ -8,6 +8,8 @@ import com.example.workshop_tl.domain.remoteconfig.GetStringValueRemoteUseCase
 import com.example.workshop_tl.domain.session.GetUserIdUseCase
 import com.example.workshop_tl.presentation.dashboard.ui.main.DashboardItem
 import kotlinx.coroutines.flow.first
+import java.util.Locale
+import kotlin.random.Random
 
 class GetDashboardItemsUseCase(
     private val getUserIdUseCase: GetUserIdUseCase,
@@ -23,6 +25,8 @@ class GetDashboardItemsUseCase(
         val remoteConfig = getStringValueRemoteUseCase("user_type")
         Log.d("TAG", "invoke: $remoteConfig")
         items.add(DashboardItem.HeaderItem(user!!.name, user.lastName))
+        val currency = Random.nextInt(0, 100000)
+        items.add(DashboardItem.Balance("%,d".format(Locale.US, currency)))
         items.add(
             if (user.getTypeUser() == UserType.GOLD) {
                 trackEventUseCase("dashboard", mapOf("user_type" to "gold"))

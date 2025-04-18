@@ -24,6 +24,7 @@ firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
 firebase-auth = { module = "com.google.firebase:firebase-auth" }
 firebase-config = { module = "com.google.firebase:firebase-config" }
 firebase-firestore = { module = "com.google.firebase:firebase-firestore" }
+firebase-inappmessaging-display = { module = "com.google.firebase:firebase-inappmessaging-display" }
 firebase-messaging-ktx = { module = "com.google.firebase:firebase-messaging-ktx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }

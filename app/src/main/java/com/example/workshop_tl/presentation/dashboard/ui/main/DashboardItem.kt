@@ -26,10 +26,15 @@ sealed class DashboardItem {
         val description: String
     ) : DashboardItem()
 
+    data class Balance(
+        val total: String
+    ) : DashboardItem()
+
     enum class ItemType(val value: Int) {
         HEADER(1),
         GOLD_CARD(2),
         PROMOTION_CARD(3),
-        SILVER_CARD(4)
+        SILVER_CARD(4),
+        BALANCE(5)
     }
 }

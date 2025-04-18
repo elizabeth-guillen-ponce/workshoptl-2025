@@ -30,18 +30,5 @@ class WorkshopApp : Application() {
                 authPresentationModule
             )
         }
-
-        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
-            if (!task.isSuccessful) {
-                Log.w("FirebaseMessaging", "Fetching FCM registration token failed", task.exception)
-                return@OnCompleteListener
-            }
-
-            // Get new FCM registration token
-            val token = task.result
-
-            // Log and toast
-            Log.d("FirebaseMessaging", token)
-        })
     }
 }

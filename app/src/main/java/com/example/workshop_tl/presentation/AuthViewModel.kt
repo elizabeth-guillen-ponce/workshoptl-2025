@@ -4,14 +4,22 @@ import com.example.workshop_tl.domain.analytics.SetUserIdAnalyticsUseCase
 import com.example.workshop_tl.domain.analytics.TrackEventUseCase
 import com.example.workshop_tl.domain.auth.LoginUseCase
 import com.example.workshop_tl.domain.auth.SignUpUseCase
+import com.example.workshop_tl.domain.cloudmessage.GetFirebaseTokenUseCase
 import com.example.workshop_tl.presentation.common.BaseViewModel
 
 class AuthViewModel constructor(
     private val signUpUseCase: SignUpUseCase,
     private val loginUseCase: LoginUseCase,
     private val trackEventUseCase: TrackEventUseCase,
-    private val setUserIdUseCase: SetUserIdAnalyticsUseCase
+    private val setUserIdUseCase: SetUserIdAnalyticsUseCase,
+    private val getFirebaseTokenUseCase: GetFirebaseTokenUseCase
 ) : BaseViewModel() {
+
+    init {
+        launchCatching {
+            getFirebaseTokenUseCase()
+        }
+    }
 
     fun onSignUpClicked(email: String, confirmEmail: String, password: String) {
         launchCatching {

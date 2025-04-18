@@ -4,6 +4,8 @@ import com.example.workshop_tl.data.analytics.AnalyticsTrack
 import com.example.workshop_tl.data.analytics.AnalyticsTrackImpl
 import com.example.workshop_tl.data.auth.AppAuthManager
 import com.example.workshop_tl.data.auth.AppAuthManagerImpl
+import com.example.workshop_tl.data.cloudmessage.CloudMessageRemoteSource
+import com.example.workshop_tl.data.cloudmessage.CloudMessageRemoteSourceImpl
 import com.example.workshop_tl.data.profile.ProfileSourceData
 import com.example.workshop_tl.data.profile.ProfileSourceDataImpl
 import com.example.workshop_tl.data.remoteconfig.RemoteConfigSource
@@ -33,5 +35,8 @@ val authDataModule = module {
     }
     single<RemoteConfigSource> {
         RemoteConfigSourceImpl(remoteConfig = get())
+    }
+    single<CloudMessageRemoteSource> {
+        CloudMessageRemoteSourceImpl(cloudMessageService = get())
     }
 }

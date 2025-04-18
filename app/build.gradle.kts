@@ -56,6 +56,7 @@ dependencies {
     implementation(libs.firebase.firestore)
     implementation(libs.firebase.config)
     implementation(libs.firebase.messaging.ktx)
+    implementation(libs.firebase.inappmessaging.display)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
 

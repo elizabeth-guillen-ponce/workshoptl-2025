@@ -12,6 +12,12 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
+    <style name="WorkShop.Money" parent="MaterialAlertDialog.Material3.Title.Text">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/black_silver</item>
+        <item name="android:fontFamily">monospace</item>
+    </style>
+
     <style name="WorkShop.Card.Numbers" parent="MaterialAlertDialog.Material3.Body.Text">
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">18sp</item>

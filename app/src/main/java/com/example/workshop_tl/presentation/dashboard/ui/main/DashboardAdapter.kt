@@ -3,6 +3,7 @@ package com.example.workshop_tl.presentation.dashboard.ui.main
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.workshop_tl.databinding.BalanceItemBinding
 import com.example.workshop_tl.databinding.GoldCardItemBinding
 import com.example.workshop_tl.databinding.HeaderItemBinding
 import com.example.workshop_tl.databinding.PromotionCardItemBinding
@@ -19,6 +20,7 @@ class DashboardAdapter(
             is DashboardItem.GoldCard -> DashboardItem.ItemType.GOLD_CARD.value
             is DashboardItem.PromotionCard -> DashboardItem.ItemType.PROMOTION_CARD.value
             is DashboardItem.SilverCard -> DashboardItem.ItemType.SILVER_CARD.value
+            is DashboardItem.Balance -> DashboardItem.ItemType.BALANCE.value
         }
     }
 
@@ -59,6 +61,14 @@ class DashboardAdapter(
                 )
             )
 
+            DashboardItem.ItemType.BALANCE.value -> BalanceViewHolder(
+                BalanceItemBinding.inflate(
+                    inflater,
+                    parent,
+                    false
+                )
+            )
+
             else -> throw IllegalArgumentException("Invalid view type")
         }
     }
@@ -72,6 +82,7 @@ class DashboardAdapter(
             is DashboardItem.GoldCard -> (holder as GoldCardViewHolder).bind(item)
             is DashboardItem.PromotionCard -> (holder as PromotionViewHolder).bind(item)
             is DashboardItem.SilverCard -> (holder as SilverCardViewHolder).bind(item)
+            is DashboardItem.Balance -> (holder as BalanceViewHolder).bind(item)
             // Add more types as needed
         }
     }

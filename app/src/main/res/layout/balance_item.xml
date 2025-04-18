@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:padding="@dimen/padding_16dp">
+
+    <TextView
+        android:id="@+id/totalLabelBalance"
+        style="@style/WorkShop.Subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/total_balance"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/signLabelBalance"
+        style="@style/WorkShop.Subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_16dp"
+        android:text="@string/money_sign"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/totalLabelBalance" />
+
+    <TextView
+        android:id="@+id/balanceLabelBalance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/WorkShop.Money"
+        android:layout_marginStart="@dimen/padding_8dp"
+        app:layout_constraintBottom_toBottomOf="@id/signLabelBalance"
+        app:layout_constraintStart_toEndOf="@id/signLabelBalance"
+        tools:text="500.00" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

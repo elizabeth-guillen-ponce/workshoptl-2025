@@ -4,6 +4,7 @@ import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.messaging.FirebaseMessaging
 import com.google.firebase.remoteconfig.ktx.remoteConfig
 import com.google.firebase.remoteconfig.ktx.remoteConfigSettings
 import org.koin.dsl.module
@@ -18,5 +19,8 @@ val firebaseDataModule = module {
             minimumFetchIntervalInSeconds = 3600
         })
         remoteConfig
+    }
+    single {
+        FirebaseMessaging.getInstance()
     }
 }
