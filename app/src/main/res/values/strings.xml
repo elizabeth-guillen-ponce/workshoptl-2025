@@ -17,14 +17,20 @@
     <string name="confirm_email">Confirma tu email</string>
 
     <!-- Profile -->
+    <string name="personal_information">Ingresa tus datos personales</string>
     <string name="name">Nombre(s)</string>
     <string name="last_name">Apellidos</string>
     <string name="gender">Género</string>
     <string name="male">Masculino</string>
     <string name="female">Femenino</string>
     <string name="save">Guardar</string>
+    <string name="select_gender">Selecciona tu género</string>
+    <string name="add_income">¿Cuáles son tus ingresos mensuales?</string>
+    <string name="hint_money">$0.00</string>
 
     <!-- Dashboard -->
-    <string name="greeting">Hola {name}!</string>
+    <string name="greeting">Hola %1s!</string>
+    <string name="title">My Bank</string>
+
 
 </resources>

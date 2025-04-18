@@ -3,17 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-
-        <variable
-            name="viewModel"
-            type="com.example.workshop_tl.presentation.AuthViewModel" />
-    </data>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/padding_32dp"
+        android:background="@color/white"
+        android:padding="@dimen/padding_16dp"
         tools:context=".presentation.SignupFragment">
 
         <TextView
@@ -21,45 +15,75 @@
             style="@style/WorkShop.Titles"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/padding_32dp"
             android:text="@string/register"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBottom_toTopOf="@id/emailInputLayoutSignup"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/emailInputSignup"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/emailInputLayoutSignup"
+            style="@style/WorkShop.Input.Layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding_32dp"
             android:layout_marginBottom="@dimen/padding_16dp"
             android:hint="@string/email"
-            android:inputType="textEmailAddress"
-            app:layout_constraintBottom_toTopOf="@id/confirmEmailInputSignup"
+            app:layout_constraintBottom_toTopOf="@id/confirmEmailInputLayoutSignup"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/confirmEmailInputSignup"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/emailInputSignup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/black" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/confirmEmailInputLayoutSignup"
+            style="@style/WorkShop.Input.Layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding_32dp"
             android:layout_marginBottom="@dimen/padding_16dp"
             android:hint="@string/confirm_email"
-            android:inputType="textEmailAddress"
-            app:layout_constraintBottom_toTopOf="@id/passwordEditTextSignup"
+            app:layout_constraintBottom_toTopOf="@id/passwordInputLayoutSignup"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/passwordEditTextSignup"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/confirmEmailInputSignup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/black" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwordInputLayoutSignup"
+            style="@style/WorkShop.Input.Layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/padding_16dp"
             android:hint="@string/password"
-            android:inputType="textPassword"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.5" />
+            app:layout_constraintVertical_bias="0.5"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/purple">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwordEditTextSignup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:inputType="textPassword" />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/registerButtonSignup"
@@ -70,7 +94,7 @@
             android:text="@string/register"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/passwordEditTextSignup" />
+            app:layout_constraintTop_toBottomOf="@+id/passwordInputLayoutSignup" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

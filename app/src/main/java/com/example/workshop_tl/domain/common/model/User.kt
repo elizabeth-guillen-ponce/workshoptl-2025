@@ -5,16 +5,15 @@ import com.google.firebase.firestore.DocumentId
 
 data class User(
     @DocumentId
-    val id: String = "",
-    val email: String = "",
+    val userId: String = "",
     val name: String = "",
     val lastName: String = "",
     val gender: String = Gender.UNKNOWN,
-    val incoming: Int = 0
+    val income: Double = 0.0
 ) {
 
     fun getTypeUser(): UserType {
-        return if (incoming > 10000) {
+        return if (income > 10000) {
             UserType.GOLD
         } else UserType.SILVER
     }

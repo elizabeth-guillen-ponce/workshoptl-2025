@@ -6,9 +6,9 @@ import com.example.workshop_tl.presentation.common.BaseViewModel
 
 class ProfileViewModel(private val createProfileUser: CreateProfileUserUseCase) : BaseViewModel() {
 
-    fun onSaveClicked(name: String, lastName: String, gender: String) {
+    fun onSaveClicked(name: String, lastName: String, gender: String, income: Double) {
         launchCatching {
-            createProfileUser(name, lastName, gender)
+            createProfileUser(name, lastName, gender, income)
             navToScreen(Screens.DASHBOARD)
         }
     }

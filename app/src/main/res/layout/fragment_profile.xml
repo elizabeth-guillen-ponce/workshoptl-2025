@@ -7,56 +7,126 @@
         android:id="@+id/profileFragmentProfile"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/white"
+        android:paddingStart="@dimen/padding_16dp"
+        android:paddingEnd="@dimen/padding_16dp"
         tools:context="ProfileFragment">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/nameInputProfile"
-            android:layout_width="0dp"
+        <TextView
+            android:id="@+id/personalLabelProfile"
+            style="@style/WorkShop.Subtitle"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_32dp"
-            android:layout_marginBottom="@dimen/padding_16dp"
-            android:hint="@string/name"
-            android:inputType="textPersonName"
-            app:layout_constraintBottom_toTopOf="@id/lastNameInputProfile"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:text="@string/personal_information"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/lastNameInputProfile"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/nameInputLayoutProfile"
+            style="@style/WorkShop.Input.Layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding_32dp"
-            android:layout_marginBottom="@dimen/padding_16dp"
-            android:hint="@string/last_name"
-            android:inputType="textPersonName"
-            app:layout_constraintBottom_toTopOf="@id/genderRadioGroupProfile"
+            android:layout_marginTop="@dimen/padding_16dp"
+            android:hint="@string/name"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/personalLabelProfile">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/nameInputProfile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:textColor="@color/black" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/lastNameInputLayoutProfile"
+            style="@style/WorkShop.Input.Layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16dp"
+            android:hint="@string/last_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/nameInputLayoutProfile">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/lastNameInputProfile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:textColor="@color/black" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/genderLabelProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_32dp"
+            android:text="@string/select_gender"
+            android:textColor="@color/black_silver"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lastNameInputLayoutProfile" />
 
         <RadioGroup
             android:id="@+id/genderRadioGroupProfile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16dp"
             android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.5">
+            app:layout_constraintTop_toBottomOf="@id/genderLabelProfile">
 
             <RadioButton
                 android:id="@+id/maleRadioButtonProfile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/male" />
+                android:text="@string/male"
+                android:textColor="@color/black_silver" />
 
             <RadioButton
                 android:id="@+id/femaleRadioButtonProfile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/padding_16dp"
-                android:text="@string/female" />
+                android:text="@string/female"
+                android:textColor="@color/black_silver" />
         </RadioGroup>
+
+        <TextView
+            android:id="@+id/incomeLabelProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_32dp"
+            android:text="@string/add_income"
+            android:textColor="@color/black_silver"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/genderRadioGroupProfile" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/incomeInputLayoutProfile"
+            style="@style/WorkShop.Input.Layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16dp"
+            android:hint="@string/hint_money"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/incomeLabelProfile">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/incomeInputProfile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:textColor="@color/black" />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/saveButtonProfile"
@@ -67,7 +137,7 @@
             android:text="@string/save"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/genderRadioGroupProfile" />
+            app:layout_constraintTop_toBottomOf="@+id/incomeInputLayoutProfile" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

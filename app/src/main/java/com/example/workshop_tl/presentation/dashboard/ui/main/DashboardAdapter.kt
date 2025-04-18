@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.workshop_tl.databinding.GoldCardItemBinding
 import com.example.workshop_tl.databinding.HeaderItemBinding
 import com.example.workshop_tl.databinding.PromotionCardItemBinding
+import com.example.workshop_tl.databinding.SilverCardItemBinding
 
 class DashboardAdapter(
     private val items: List<DashboardItem>
@@ -13,10 +14,11 @@ class DashboardAdapter(
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun getItemViewType(position: Int): Int {
-        return when(items[position]) {
+        return when (items[position]) {
             is DashboardItem.HeaderItem -> DashboardItem.ItemType.HEADER.value
             is DashboardItem.GoldCard -> DashboardItem.ItemType.GOLD_CARD.value
             is DashboardItem.PromotionCard -> DashboardItem.ItemType.PROMOTION_CARD.value
+            is DashboardItem.SilverCard -> DashboardItem.ItemType.SILVER_CARD.value
         }
     }
 
@@ -31,7 +33,8 @@ class DashboardAdapter(
                     inflater,
                     parent,
                     false
-                )
+                ),
+                parent.context
             )
 
             DashboardItem.ItemType.GOLD_CARD.value -> GoldCardViewHolder(
@@ -48,6 +51,14 @@ class DashboardAdapter(
                 )
             )
 
+            DashboardItem.ItemType.SILVER_CARD.value -> SilverCardViewHolder(
+                SilverCardItemBinding.inflate(
+                    inflater,
+                    parent,
+                    false
+                )
+            )
+
             else -> throw IllegalArgumentException("Invalid view type")
         }
     }
@@ -60,6 +71,7 @@ class DashboardAdapter(
             is DashboardItem.HeaderItem -> (holder as HeaderViewHolder).bind(item)
             is DashboardItem.GoldCard -> (holder as GoldCardViewHolder).bind(item)
             is DashboardItem.PromotionCard -> (holder as PromotionViewHolder).bind(item)
+            is DashboardItem.SilverCard -> (holder as SilverCardViewHolder).bind(item)
             // Add more types as needed
         }
     }

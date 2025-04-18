@@ -8,9 +8,17 @@ sealed class DashboardItem {
         val cvv: String
     ) : DashboardItem()
 
+    data class SilverCard(
+        val cardNumber: String,
+        val cardHolder: String,
+        val expiryDate: String,
+        val cvv: String
+    ) : DashboardItem()
+
+
     data class HeaderItem(
-        val title: String,
-        val name: String
+        val name: String,
+        val lastName: String
     ) : DashboardItem()
 
     data class PromotionCard(
@@ -21,6 +29,7 @@ sealed class DashboardItem {
     enum class ItemType(val value: Int) {
         HEADER(1),
         GOLD_CARD(2),
-        PROMOTION_CARD(3)
+        PROMOTION_CARD(3),
+        SILVER_CARD(4)
     }
 }

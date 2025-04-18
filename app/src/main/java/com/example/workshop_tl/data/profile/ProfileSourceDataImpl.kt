@@ -1,5 +1,6 @@
 package com.example.workshop_tl.data.profile
 
+import android.util.Log
 import com.example.workshop_tl.domain.common.model.User
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.dataObjects
@@ -8,10 +9,9 @@ import kotlinx.coroutines.tasks.await
 
 class ProfileSourceDataImpl(private val firestore: FirebaseFirestore) : ProfileSourceData {
 
-    override suspend fun getUserProfile(userId: String): Flow<List<User>> {
-        val user =
-            firestore.collection(USERS_COLLECTION)
-                .dataObjects<User>()
+    override suspend fun getUserProfile(userId: String): Flow<User?> {
+        Log.d("ProfileSourceDataImpl", "getUserProfile: $userId")
+        val user = firestore.collection(USERS_COLLECTION).document(userId).dataObjects<User>()
         return user
     }
 
@@ -19,11 +19,12 @@ class ProfileSourceDataImpl(private val firestore: FirebaseFirestore) : ProfileS
         userId: String,
         name: String,
         lastName: String,
-        gender: String
+        gender: String,
+        income: Double
     ): String {
-        var item =
-            firestore.collection(USERS_COLLECTION).add(User(userId, name, lastName, gender)).await()
-        return item.id
+        firestore.collection(USERS_COLLECTION).document(userId)
+            .set(User(userId, name, lastName, gender, income)).await()
+        return userId
     }
 
     companion object {

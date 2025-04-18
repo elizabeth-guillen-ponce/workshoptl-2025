@@ -34,7 +34,7 @@ class LoginFragment : Fragment() {
             if (validateInputs()) {
                 authViewModel.onLoginClicked(
                     binding.emailInputLogin.text.toString(),
-                    binding.passwordEditText.text.toString()
+                    binding.passwordInputLogin.text.toString()
                 )
             }
         }
@@ -48,8 +48,8 @@ class LoginFragment : Fragment() {
             binding.emailInputLogin.error = "Email is required"
             return false
         }
-        if (binding.passwordEditText.text.toString().isEmpty()) {
-            binding.passwordEditText.error = "Password is required"
+        if (binding.passwordInputLogin.text.toString().isEmpty()) {
+            binding.passwordInputLogin.error = "Password is required"
             return false
         }
         return true

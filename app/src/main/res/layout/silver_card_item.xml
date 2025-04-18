@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardBackgroundColor="@color/gold"
+    app:cardBackgroundColor="@color/silver"
     android:layout_margin="@dimen/padding_8dp"
     app:cardCornerRadius="@dimen/padding_8dp"
     app:cardElevation="@dimen/padding_4dp">
@@ -18,7 +18,7 @@
             android:id="@+id/cardLogoImageCard"
             android:layout_width="@dimen/credit_card_width"
             android:layout_height="@dimen/credit_card_height"
-            android:src="@mipmap/ic_launcher"
+            android:src="@drawable/ic_launcher_foreground"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="ContentDescription" />
@@ -29,6 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_16dp"
             style="@style/WorkShop.Card.Numbers"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cardLogoImageCard"
@@ -40,7 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_8dp"
             android:textSize="16sp"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cardNumberTextCard"
@@ -52,7 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_8dp"
             android:textSize="14sp"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cardHolderTextCard"
             tools:text="MM/YY" />
@@ -63,7 +64,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_8dp"
             android:textSize="14sp"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cardHolderTextCard"
             tools:text="123" />

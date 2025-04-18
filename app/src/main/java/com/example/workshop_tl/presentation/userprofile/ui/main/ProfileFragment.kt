@@ -1,14 +1,13 @@
 package com.example.workshop_tl.presentation.userprofile.ui.main
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.example.workshop_tl.databinding.FragmentProfileBinding
 import com.example.workshop_tl.utils.Gender
 import org.koin.androidx.viewmodel.ext.android.activityViewModel
-import kotlin.getValue
 
 
 class ProfileFragment : Fragment() {
@@ -31,7 +30,8 @@ class ProfileFragment : Fragment() {
             profileViewModel.onSaveClicked(
                 binding.nameInputProfile.text.toString(),
                 binding.lastNameInputProfile.text.toString(),
-                if(binding.genderRadioGroupProfile.checkedRadioButtonId == binding.maleRadioButtonProfile.id) Gender.MALE else Gender.FEMALE
+                if (binding.genderRadioGroupProfile.checkedRadioButtonId == binding.maleRadioButtonProfile.id) Gender.MALE else Gender.FEMALE,
+                binding.incomeInputProfile.text.toString().toDouble()
             )
         }
     }

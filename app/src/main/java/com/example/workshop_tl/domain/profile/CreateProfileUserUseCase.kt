@@ -7,7 +7,7 @@ class CreateProfileUserUseCase(
     private val profileSourceData: ProfileSourceData,
     private val getUserIdUseCase: GetUserIdUseCase
 ) {
-    suspend operator fun invoke(name: String, lastName: String, gender: String) {
-        profileSourceData.completeProfile(getUserIdUseCase.invoke(), name, lastName, gender)
+    suspend operator fun invoke(name: String, lastName: String, gender: String, income: Double) {
+        profileSourceData.completeProfile(getUserIdUseCase.invoke(), name, lastName, gender, income)
     }
 }
