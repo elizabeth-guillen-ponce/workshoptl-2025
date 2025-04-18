@@ -11,5 +11,5 @@ interface ProfileSourceData {
         lastName: String,
         gender: String,
         income: Double
-    ): String
+    ): User
 }

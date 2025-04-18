@@ -21,10 +21,11 @@ class ProfileSourceDataImpl(private val firestore: FirebaseFirestore) : ProfileS
         lastName: String,
         gender: String,
         income: Double
-    ): String {
+    ): User {
+        val user = User(userId, name, lastName, gender, income)
         firestore.collection(USERS_COLLECTION).document(userId)
-            .set(User(userId, name, lastName, gender, income)).await()
-        return userId
+            .set(user).await()
+        return user
     }
 
     companion object {

@@ -1,8 +1,10 @@
 package com.example.workshop_tl.domain.dashboard
 
+import android.util.Log
 import com.example.workshop_tl.domain.analytics.TrackEventUseCase
 import com.example.workshop_tl.domain.common.model.UserType
 import com.example.workshop_tl.domain.profile.GetProfileUserUseCase
+import com.example.workshop_tl.domain.remoteconfig.GetStringValueRemoteUseCase
 import com.example.workshop_tl.domain.session.GetUserIdUseCase
 import com.example.workshop_tl.presentation.dashboard.ui.main.DashboardItem
 import kotlinx.coroutines.flow.first
@@ -10,13 +12,16 @@ import kotlinx.coroutines.flow.first
 class GetDashboardItemsUseCase(
     private val getUserIdUseCase: GetUserIdUseCase,
     private val getProfileUserUseCase: GetProfileUserUseCase,
-    private val trackEventUseCase: TrackEventUseCase
+    private val trackEventUseCase: TrackEventUseCase,
+    private val getStringValueRemoteUseCase: GetStringValueRemoteUseCase
 ) {
 
     suspend operator fun invoke(): List<DashboardItem> {
         val userId = getUserIdUseCase.invoke()
         val user = getProfileUserUseCase.invoke(userId).first()
         val items = mutableListOf<DashboardItem>()
+        val remoteConfig = getStringValueRemoteUseCase("user_type")
+        Log.d("TAG", "invoke: $remoteConfig")
         items.add(DashboardItem.HeaderItem(user!!.name, user.lastName))
         items.add(
             if (user.getTypeUser() == UserType.GOLD) {

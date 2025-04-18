@@ -51,9 +51,11 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     //Firebase
     implementation(platform("com.google.firebase:firebase-bom:32.7.0"))
-    implementation( "com.google.firebase:firebase-analytics")
-    implementation("com.google.firebase:firebase-auth")
-    implementation("com.google.firebase:firebase-firestore")
+    implementation(libs.firebase.analytics)
+    implementation(libs.firebase.auth)
+    implementation(libs.firebase.firestore)
+    implementation(libs.firebase.config)
+    implementation(libs.firebase.messaging.ktx)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
 
