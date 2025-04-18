@@ -5,7 +5,9 @@ import androidx.lifecycle.MutableLiveData
 import com.example.workshop_tl.domain.dashboard.GetDashboardItemsUseCase
 import com.example.workshop_tl.presentation.common.BaseViewModel
 
-class DashboardViewModel(private val getDashboardItemsUseCase: GetDashboardItemsUseCase) :
+class DashboardViewModel(
+    private val getDashboardItemsUseCase: GetDashboardItemsUseCase
+) :
     BaseViewModel() {
 
     private val _dashboardItem = MutableLiveData<List<DashboardItem>>()

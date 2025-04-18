@@ -1,5 +1,6 @@
 package com.example.workshop_tl.domain.dashboard
 
+import com.example.workshop_tl.domain.analytics.TrackEventUseCase
 import com.example.workshop_tl.domain.common.model.UserType
 import com.example.workshop_tl.domain.profile.GetProfileUserUseCase
 import com.example.workshop_tl.domain.session.GetUserIdUseCase
@@ -8,7 +9,8 @@ import kotlinx.coroutines.flow.first
 
 class GetDashboardItemsUseCase(
     private val getUserIdUseCase: GetUserIdUseCase,
-    private val getProfileUserUseCase: GetProfileUserUseCase
+    private val getProfileUserUseCase: GetProfileUserUseCase,
+    private val trackEventUseCase: TrackEventUseCase
 ) {
 
     suspend operator fun invoke(): List<DashboardItem> {
@@ -17,18 +19,22 @@ class GetDashboardItemsUseCase(
         val items = mutableListOf<DashboardItem>()
         items.add(DashboardItem.HeaderItem(user!!.name, user.lastName))
         items.add(
-            if (user.getTypeUser() == UserType.GOLD)
+            if (user.getTypeUser() == UserType.GOLD) {
+                trackEventUseCase("dashboard", mapOf("user_type" to "gold"))
                 DashboardItem.GoldCard(
                     "**** **** **** 1234",
                     "John Doe",
                     "MM/YY",
                     "123"
                 )
-            else DashboardItem.SilverCard(
-                "**** **** **** 1234",
-                "John Doe",
-                "MM/YY", "123"
-            )
+            } else {
+                trackEventUseCase("dashboard", mapOf("user_type" to "silver"))
+                DashboardItem.SilverCard(
+                    "**** **** **** 1234",
+                    "John Doe",
+                    "MM/YY", "123"
+                )
+            }
         )
         if (user.getTypeUser() == UserType.SILVER) {
             items.add(

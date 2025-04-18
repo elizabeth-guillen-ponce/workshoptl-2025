@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.workshop_tl.R
+import com.example.workshop_tl.domain.analytics.TrackEventUseCase
 import com.example.workshop_tl.domain.common.model.ErrorMessage
 import com.example.workshop_tl.presentation.Screens
 import kotlinx.coroutines.CoroutineExceptionHandler
@@ -13,6 +14,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 open class BaseViewModel : ViewModel() {
+
     private val _navToScreen = MutableLiveData<Screens>()
     val navToScreen: LiveData<Screens> = _navToScreen
 
@@ -36,5 +38,4 @@ open class BaseViewModel : ViewModel() {
     fun navToScreen(screens: Screens) {
         _navToScreen.value = screens
     }
-
 }
