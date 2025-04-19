@@ -5,7 +5,7 @@
     <color name="grey">#FF808080</color>
     <color name="red">#FFFF0000</color>
     <color name="green">#FF00FF00</color>
-    <color name="blue">#FF0000FF</color>
+    <color name="blue">#0707D9</color>
     <color name="blue_navy">#01017E</color>
     <color name="light_gray">#EBE9E9</color>
     <color name="tile">#009688</color>
@@ -13,4 +13,5 @@
     <color name="gold">#D6EBB619</color>
     <color name="silver">#C0C0C0</color>
     <color name="black_silver">#424141</color>
+    <color name="light_blue">#7189FA</color>
 </resources>

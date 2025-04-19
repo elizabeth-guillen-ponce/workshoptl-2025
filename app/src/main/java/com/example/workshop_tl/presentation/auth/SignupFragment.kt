@@ -1,4 +1,4 @@
-package com.example.workshop_tl.presentation
+package com.example.workshop_tl.presentation.auth
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,10 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.workshop_tl.databinding.FragmentSignupBinding
 import org.koin.androidx.viewmodel.ext.android.activityViewModel
-import kotlin.getValue
 
 /**
- * A simple [Fragment] subclass.
+ * A simple [androidx.fragment.app.Fragment] subclass.
  * Use the [SignupFragment.newInstance] factory method to
  * create an instance of this fragment.
  */

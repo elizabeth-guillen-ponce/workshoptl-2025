@@ -9,7 +9,7 @@ import android.os.Build
 import android.util.Log
 import androidx.core.app.NotificationCompat
 import com.example.workshop_tl.R
-import com.example.workshop_tl.presentation.MainActivity
+import com.example.workshop_tl.presentation.auth.MainActivity
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 

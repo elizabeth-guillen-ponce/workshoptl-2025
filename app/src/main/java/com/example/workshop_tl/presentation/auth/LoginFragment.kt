@@ -1,4 +1,4 @@
-package com.example.workshop_tl.presentation
+package com.example.workshop_tl.presentation.auth
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.workshop_tl.databinding.FragmentLoginBinding
+import com.example.workshop_tl.presentation.Screens
 import org.koin.androidx.viewmodel.ext.android.activityViewModel
 
 /**

@@ -26,7 +26,12 @@
     </style>
 
     <style name="WorkShop.Input.Layout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="boxStrokeColor">@color/purple</item>
-        <item name="hintTextColor">@color/purple</item>
+        <item name="boxStrokeColor">@color/blue</item>
+        <item name="hintTextColor">@color/blue</item>
+    </style>
+
+    <style name="WorkShop.Text.Link" parent="MaterialAlertDialog.Material3.Body.Text">
+        <item name="android:textColor">@color/blue</item>
+        <item name="android:textStyle">bold</item>
     </style>
 </resources>

@@ -8,6 +8,7 @@
     <string name="password">Password</string>
     <string name="generic_error">Ops, ha ocurrido un error</string>
     <string name="default_notification_channel_id">1</string>
+    <string name="permission_denied">El permiso de notificaciones ha sido negado</string>
 
     <!-- Login -->
     <string name="login">Iniciar Sesión</string>
@@ -16,6 +17,12 @@
 
     <!-- Signup -->
     <string name="confirm_email">Confirma tu email</string>
+    <string name="password_numbers">• La contraseña debe contener al menos un número</string>
+    <string name="password_uppercase">• La contraseña debe contener al menos una letra mayúscula</string>
+    <string name="password_lowercase">• La contraseña debe contener al menos una letra minúscula</string>
+    <string name="password_length">• La contraseña debe tener al menos 8 caracteres</string>
+    <string name="password_special_characters">• La contraseña debe contener al menos un carácter especial</string>
+
 
     <!-- Profile -->
     <string name="personal_information">Ingresa tus datos personales</string>
@@ -31,7 +38,7 @@
 
     <!-- Dashboard -->
     <string name="greeting">Hola %1s!</string>
-    <string name="title">My Bank</string>
+    <string name="title">Android Bank</string>
     <string name="total_balance">Saldo total:</string>
     <string name="money_sign">$</string>
 

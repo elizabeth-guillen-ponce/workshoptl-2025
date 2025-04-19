@@ -8,13 +8,13 @@
     <fragment
         android:id="@+id/loginFragment"
         android:label="Login"
-        android:name="com.example.workshop_tl.presentation.LoginFragment"
+        android:name="com.example.workshop_tl.presentation.auth.LoginFragment"
         tools:layout="@layout/fragment_login" />
 
     <fragment
         android:id="@+id/signupFragment"
         android:label="Signup"
-        android:name="com.example.workshop_tl.presentation.SignupFragment"
+        android:name="com.example.workshop_tl.presentation.auth.SignupFragment"
         tools:layout="@layout/fragment_signup" />
 
 </navigation>

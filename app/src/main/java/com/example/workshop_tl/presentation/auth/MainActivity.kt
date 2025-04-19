@@ -1,10 +1,11 @@
-package com.example.workshop_tl.presentation
+package com.example.workshop_tl.presentation.auth
 
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -12,6 +13,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.example.workshop_tl.R
 import com.example.workshop_tl.databinding.ActivityMainBinding
+import com.example.workshop_tl.presentation.Screens
 import com.example.workshop_tl.presentation.dashboard.DashboardActivity
 import com.example.workshop_tl.presentation.userprofile.ProfileActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -27,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         if (isGranted) {
             // FCM SDK (and your app) can post notifications.
         } else {
-            askNotificationPermission()
+            Toast.makeText(this, R.string.permission_denied, Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -35,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        requestPermissionLauncher
+        askNotificationPermission()
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.fragmentContainerLogin) as NavHostFragment
         val navController = navHostFragment.navController
@@ -66,11 +68,6 @@ class MainActivity : AppCompatActivity() {
                 PackageManager.PERMISSION_GRANTED
             ) {
                 // FCM SDK (and your app) can post notifications.
-            } else if (shouldShowRequestPermissionRationale(Manifest.permission.POST_NOTIFICATIONS)) {
-                // TODO: display an educational UI explaining to the user the features that will be enabled
-                //       by them granting the POST_NOTIFICATION permission. This UI should provide the user
-                //       "OK" and "No thanks" buttons. If the user selects "OK," directly request the permission.
-                //       If the user selects "No thanks," allow the user to continue without notifications.
             } else {
                 // Directly ask for the permission
                 requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)

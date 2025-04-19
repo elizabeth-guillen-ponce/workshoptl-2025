@@ -1,6 +1,6 @@
 package com.example.workshop_tl.presentation.di
 
-import com.example.workshop_tl.presentation.AuthViewModel
+import com.example.workshop_tl.presentation.auth.AuthViewModel
 import com.example.workshop_tl.presentation.common.BaseViewModel
 import com.example.workshop_tl.presentation.dashboard.ui.main.DashboardViewModel
 import com.example.workshop_tl.presentation.userprofile.ui.main.ProfileViewModel
