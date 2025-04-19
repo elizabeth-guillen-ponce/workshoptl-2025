@@ -6,7 +6,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.messaging.FirebaseMessaging
 import com.google.firebase.remoteconfig.ktx.remoteConfig
-import com.google.firebase.remoteconfig.ktx.remoteConfigSettings
 import org.koin.dsl.module
 
 val firebaseDataModule = module {
@@ -14,11 +13,7 @@ val firebaseDataModule = module {
     single { FirebaseFirestore.getInstance() }
     single { FirebaseAnalytics.getInstance(get()) }
     single {
-        val remoteConfig = Firebase.remoteConfig
-        remoteConfig.setConfigSettingsAsync(remoteConfigSettings {
-            minimumFetchIntervalInSeconds = 3600
-        })
-        remoteConfig
+        Firebase.remoteConfig
     }
     single {
         FirebaseMessaging.getInstance()

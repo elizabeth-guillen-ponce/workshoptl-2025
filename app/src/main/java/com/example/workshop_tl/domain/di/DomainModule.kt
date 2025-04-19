@@ -2,6 +2,7 @@ package com.example.workshop_tl.domain.di
 
 import com.example.workshop_tl.domain.analytics.SetUserIdAnalyticsUseCase
 import com.example.workshop_tl.domain.analytics.TrackEventUseCase
+import com.example.workshop_tl.domain.analytics.TrackUserPropertiesUseCase
 import com.example.workshop_tl.domain.auth.LoginUseCase
 import com.example.workshop_tl.domain.auth.SignOutUseCase
 import com.example.workshop_tl.domain.auth.SignUpUseCase
@@ -11,6 +12,7 @@ import com.example.workshop_tl.domain.profile.CreateProfileUserUseCase
 import com.example.workshop_tl.domain.profile.GetProfileUserUseCase
 import com.example.workshop_tl.domain.remoteconfig.GetStringValueRemoteUseCase
 import com.example.workshop_tl.domain.remoteconfig.SetDefaultValuesRemoteUseCase
+import com.example.workshop_tl.domain.remoteconfig.StartRemoteConfigUseCase
 import com.example.workshop_tl.domain.session.GetCurrentUserUseCase
 import com.example.workshop_tl.domain.session.GetUserIdUseCase
 import org.koin.dsl.module
@@ -35,8 +37,7 @@ val authDomainModule = module {
     }
     single {
         GetProfileUserUseCase(
-            profileSourceData = get(),
-            setDefaultValuesRemoteUseCase = get()
+            profileSourceData = get()
         )
     }
     single {
@@ -44,7 +45,8 @@ val authDomainModule = module {
             getUserIdUseCase = get(),
             getProfileUserUseCase = get(),
             trackEventUseCase = get(),
-            getStringValueRemoteUseCase = get()
+            trackUserPropertiesUseCase = get(),
+            remoteConfigSource = get()
         )
     }
     single { TrackEventUseCase(analyticsTrack = get()) }
@@ -52,4 +54,6 @@ val authDomainModule = module {
     single { SetDefaultValuesRemoteUseCase(remoteConfigSource = get()) }
     single { GetStringValueRemoteUseCase(remoteConfigSource = get()) }
     single { GetFirebaseTokenUseCase(cloudMessageRemoteSource = get()) }
+    single { TrackUserPropertiesUseCase(analyticsTrack = get()) }
+    single { StartRemoteConfigUseCase(remoteConfigSource = get()) }
 }

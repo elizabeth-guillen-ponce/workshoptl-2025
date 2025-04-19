@@ -17,8 +17,14 @@ class AnalyticsTrackImpl(private val analytics: FirebaseAnalytics) : AnalyticsTr
 
     }
 
+    override fun trackUserProperties(properties: Map<String, String>) {
+        properties.forEach { key, value ->
+            analytics.setUserProperty(key, value)
+        }
+    }
+
     private fun getBundle(params: Map<String, Any>?): Bundle? {
-        if(params == null) return null
+        if (params == null) return null
 
         val bundle = Bundle()
         params.forEach { key, value ->

@@ -5,6 +5,7 @@ import com.example.workshop_tl.domain.analytics.TrackEventUseCase
 import com.example.workshop_tl.domain.auth.LoginUseCase
 import com.example.workshop_tl.domain.auth.SignUpUseCase
 import com.example.workshop_tl.domain.cloudmessage.GetFirebaseTokenUseCase
+import com.example.workshop_tl.domain.remoteconfig.StartRemoteConfigUseCase
 import com.example.workshop_tl.presentation.common.BaseViewModel
 
 class AuthViewModel constructor(
@@ -12,11 +13,13 @@ class AuthViewModel constructor(
     private val loginUseCase: LoginUseCase,
     private val trackEventUseCase: TrackEventUseCase,
     private val setUserIdUseCase: SetUserIdAnalyticsUseCase,
-    private val getFirebaseTokenUseCase: GetFirebaseTokenUseCase
+    private val getFirebaseTokenUseCase: GetFirebaseTokenUseCase,
+    private val startRemoteConfigUseCase: StartRemoteConfigUseCase
 ) : BaseViewModel() {
 
     init {
         launchCatching {
+            startRemoteConfigUseCase()
             getFirebaseTokenUseCase()
         }
     }

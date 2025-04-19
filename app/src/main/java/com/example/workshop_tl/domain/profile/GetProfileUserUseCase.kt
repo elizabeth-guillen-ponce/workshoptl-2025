@@ -9,16 +9,10 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 
 class GetProfileUserUseCase(
-    private val profileSourceData: ProfileSourceData,
-    private val setDefaultValuesRemoteUseCase: SetDefaultValuesRemoteUseCase
+    private val profileSourceData: ProfileSourceData
 ) {
     suspend operator fun invoke(userId: String): Flow<User?> {
         val user = profileSourceData.getUserProfile(userId)
-        val temp = user.first()
-        setDefaultValuesRemoteUseCase(
-            RemoteConfig.Keys.USER_TYPE,
-            temp?.getTypeUser()?.name ?: UserType.SILVER.name
-        )
         return user
     }
 }
