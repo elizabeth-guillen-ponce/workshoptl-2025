@@ -4,7 +4,7 @@
 
 - Versión mínima de Android Studio = LadyBug
 - Android target version = 33
-- Emulador con Play services o dispositivo fisíco con Play Services
+- Emulador con Play services o dispositivo físico con Play Services
 
 ### Descripción
 
