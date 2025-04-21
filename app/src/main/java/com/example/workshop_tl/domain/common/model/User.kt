@@ -13,7 +13,7 @@ data class User(
 ) {
 
     fun getTypeUser(): UserType {
-        return if (income > 10000) {
+        return if (income > 50000) {
             UserType.GOLD
         } else UserType.SILVER
     }
