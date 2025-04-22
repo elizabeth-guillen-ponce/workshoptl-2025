@@ -14,6 +14,7 @@ class DashboardAdapter(
 ) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
+        //Add new item
     override fun getItemViewType(position: Int): Int {
         return when (items[position]) {
             is DashboardItem.HeaderItem -> DashboardItem.ItemType.HEADER.value

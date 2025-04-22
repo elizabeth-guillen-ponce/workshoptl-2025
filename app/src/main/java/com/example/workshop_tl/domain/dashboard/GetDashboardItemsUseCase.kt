@@ -1,7 +1,5 @@
 package com.example.workshop_tl.domain.dashboard
 
-import android.util.Log
-import com.example.workshop_tl.data.remoteconfig.RemoteConfigSource
 import com.example.workshop_tl.domain.analytics.TrackEventUseCase
 import com.example.workshop_tl.domain.analytics.TrackUserPropertiesUseCase
 import com.example.workshop_tl.domain.common.model.UserType
@@ -17,16 +15,14 @@ class GetDashboardItemsUseCase(
     private val getUserIdUseCase: GetUserIdUseCase,
     private val getProfileUserUseCase: GetProfileUserUseCase,
     private val trackEventUseCase: TrackEventUseCase,
-    private val trackUserPropertiesUseCase: TrackUserPropertiesUseCase,
-    private val remoteConfigSource: RemoteConfigSource
+    private val trackUserPropertiesUseCase: TrackUserPropertiesUseCase
 ) {
 
+    //Add new Item
     suspend operator fun invoke(): List<DashboardItem> {
         val userId = getUserIdUseCase.invoke()
         val user = getProfileUserUseCase.invoke(userId).first()
         val items = mutableListOf<DashboardItem>()
-        val remoteConfig = remoteConfigSource.remoteValue
-        Log.d("TAG", "invoke: $remoteConfig")
         items.add(DashboardItem.HeaderItem(user!!.name, user.lastName))
         trackUserPropertiesUseCase.invoke(mapOf(Events.Params.USER_TYPE to user.getTypeUser().name))
         val currency = Random.nextInt(0, 100000)
@@ -47,12 +43,10 @@ class GetDashboardItemsUseCase(
         if (user.getTypeUser() == UserType.SILVER) {
             items.add(
                 DashboardItem.PromotionCard(
-                    "Promoción!!!!", if (remoteConfig) "Obten un prestamo para carro ahora mismo"
-                    else "Obten un prestamo personal de hasta $10,000.00 MXN "
+                    "Promoción!!!!", "Obten un prestamo personal de hasta $10,000.00 MXN "
                 )
             )
         }
         return items
     }
-
 }

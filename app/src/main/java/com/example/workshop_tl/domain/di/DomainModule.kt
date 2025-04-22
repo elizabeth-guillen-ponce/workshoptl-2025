@@ -45,8 +45,7 @@ val authDomainModule = module {
             getUserIdUseCase = get(),
             getProfileUserUseCase = get(),
             trackEventUseCase = get(),
-            trackUserPropertiesUseCase = get(),
-            remoteConfigSource = get()
+            trackUserPropertiesUseCase = get()
         )
     }
     single { TrackEventUseCase(analyticsTrack = get()) }

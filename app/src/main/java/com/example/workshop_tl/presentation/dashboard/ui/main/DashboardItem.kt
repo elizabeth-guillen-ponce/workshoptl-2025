@@ -30,6 +30,8 @@ sealed class DashboardItem {
         val total: String
     ) : DashboardItem()
 
+    //Add new Item
+
     enum class ItemType(val value: Int) {
         HEADER(1),
         GOLD_CARD(2),

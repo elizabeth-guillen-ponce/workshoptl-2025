@@ -48,4 +48,6 @@ class BalanceViewHolder(private val binding: BalanceItemBinding) :
     fun bind(item: DashboardItem.Balance) {
         binding.balanceLabelBalance.text = item.total
     }
+
+    //Add new ViewHolder and bind item (layout)
 }
