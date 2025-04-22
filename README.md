@@ -16,6 +16,6 @@ Proyecto de ejemplo con los siguientes componentes:
 - Coroutines
 - ViewModels
 - ViewBinding
-- Firebase implementation (Analytics, Push Notifications, Firestone)
+- Firebase implementation (Analytics, Push Notifications, Firestore)
 
 El proyecto contiene un login, un registro, un formulario KYC y un Dashboard.
